@@ -1,0 +1,613 @@
+/* General Body and Typography */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Header & Navbar */
+header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #FF5A5F;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.navbar nav ul li a:hover {
+    color: #FF5A5F;
+}
+
+/* Add New Listing Button */
+.add-new-btn-container {
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #FF5A5F;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #e04b50;
+    transform: translateY(-2px);
+}
+
+
+/* Listings Grid */
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 25px;
+}
+
+/* Listing Card */
+.listing-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    transition: transform 0.3s ease;
+}
+
+.listing-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.card-price {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+
+/* Footer */
+footer {
+    background-color: #f7f7f7;
+    color: #777;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================== */
+/* LISTING DETAILS (SHOW) PAGE   */
+/* =============================== */
+
+.listing-details {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.listing-image {
+    flex: 1 1 400px; /* Flex-grow, flex-shrink, flex-basis */
+}
+
+.listing-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.listing-info {
+    flex: 1 1 400px;
+}
+
+.listing-info h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.listing-info .description {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.info-list li {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.info-list li strong {
+    font-weight: 700;
+    margin-right: 8px;
+    color: #111;
+}
+
+/* Action Buttons Styling */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.btn-danger {
+    display: inline-block;
+    background-color: #d9534f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .listing-details {
+        flex-direction: column; /* Stack image and info vertically */
+    }
+    .listing-info h1 {
+        font-size: 2em;
+    }
+}
+
+
+
+/* =============================== */
+/* FORM STYLING (EDIT & NEW PAGE) */
+/* =============================== */
+
+.form-container {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Important for padding and width */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #FF5A5F;
+    box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.2);
+}
+
+form textarea {
+    resize: vertical; /* Allow users to resize the textarea height */
+}
+
+/* Button specific styling for forms */
+.form-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px; /* Make the button a bit larger */
+    font-size: 1.1em;
+}
+
+
+/* =============================== */
+/* FORM STYLING (EDIT & NEW PAGE) */
+/* =============================== */
+
+.form-container {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Important for padding and width */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #FF5A5F;
+    box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.2);
+}
+
+form textarea {
+    resize: vertical; /* Allow users to resize the textarea height */
+}
+
+/* Button specific styling for forms */
+.form-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px; /* Make the button a bit larger */
+    font-size: 1.1em;
+}
+
+/* ======================================= */
+/* UPDATED LISTING DETAILS (SHOW) PAGE   */
+/* ======================================= */
+
+.page-title {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* New single-column card container */
+.show-card {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden; /* Ensures image corners are rounded */
+}
+
+.show-img-container {
+    width: 100%;
+    height: 400px; /* Or adjust as needed */
+}
+
+.show-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.show-card-info {
+    padding: 1.5rem 2rem;
+}
+
+.show-card-info h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.show-card-info .description {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Updated list style for price/location */
+.show-card-info .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    color: #555;
+}
+
+.show-card-info .info-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================ */
+/* UPDATED BUTTON STYLES        */
+/* ============================ */
+
+/* Overwriting the old .btn-primary to match the red in the screenshot */
+.btn-primary {
+    display: inline-block;
+    background-color: #FE395C; /* Airbnb Red */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e02f4f;
+}
+
+/* Removed old .btn-danger styles and added this new dark button style */
+.btn-dark {
+    display: inline-block;
+    background-color: #222222; /* Dark Grey/Black */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.btn-dark:hover {
+    background-color: #444;
+}
+
+/* Ensure action buttons are side-by-side */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    align-items: center;
+}
+
+/* =============================== */
+/* REVIEW SECTION STYLING        */
+/* =============================== */
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+.review-form-container h4,
+.reviews-container h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Star Rating Input */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* This is key for the hover effect */
+    justify-content: flex-end;
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    transition: color 0.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffc700;
+}
+
+/* Displaying Existing Reviews */
+.reviews-container {
+    margin-top: 2rem;
+}
+
+.review-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.review-comment {
+    margin: 0.5rem 0 0 0;
+}
+
+/* Displaying Saved Star Ratings */
+.starability-result {
+    font-size: 1.2rem;
+    color: #ffc700;
+}
+.starability-result[data-rating="1"]:before { content: "★"; }
+.starability-result[data-rating="2"]:before { content: "★★"; }
+.starability-result[data-rating="3"]:before { content: "★★★"; }
+.starability-result[data-rating="4"]:before { content: "★★★★"; }
+.starability-result[data-rating="5"]:before { content: "★★★★★"; }
+
+.review-delete-btn {
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.review-delete-btn:hover {
+    background-color: #e0e0e0;
+}

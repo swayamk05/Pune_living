@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust - Connecting People & Property</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            /* This background-image URL has been updated */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0;
+            text-align: center;
+        }
+        .feature-card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Connecting People & Property</h1>
+            <p class="lead my-4">Your Pune Home Awaits.</p>
+            <form action="/listings" method="GET" class="d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control form-control-lg" placeholder="Enter a location (e.g., Pune, Baner)" aria-label="Search location">
+                        <button class="btn btn-danger btn-lg" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container my-5 py-5">
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Discover Properties</h5>
+                        <p class="card-text">Find a perfect home from our wide range of properties that cater to all your needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Curated Stays</h5>
+                        <p class="card-text">Get expert opinions and real estate assistance from our extensive catalogue of curated stays.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Connect with Hosts</h5>
+                        <p class="card-text">List your property on our portal for FREE and showcase it to 50,000+ active home seekers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Get Instant Alerts</h5>
+                        <p class="card-text">Can't find what you're looking for? Tell us your requirement and get instant alerts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container my-5">
+        <h2 class="section-title">New Listings</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <% for (let listing of allListings) { %>
+                <a href="/listings/<%= listing._id %>" class="listing-card">
+                    <div class="card-image">
+                        <% if (listing.images && listing.images.length > 0) { %>
+                            <img src="<%= listing.images[0].url.replace('/upload', '/upload/w_300,h_200,c_fill') %>" alt="<%= listing.title %>">
+                        <% } else { %>
+                            <img src="https://placehold.co/300x200/282828/FFFFFF?text=No+Image" alt="Placeholder image for <%= listing.title %>">
+                        <% } %>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><%= listing.title %></h3>
+                        <p class="card-price">₹<%= listing.price.toLocaleString("en-IN") %> / night</p>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include('../includes/footer.ejs') %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
